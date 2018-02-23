@@ -53,7 +53,7 @@ public class InformacoesUsuarioTest {
 
     }
 
-    //@Test
+    @Test
     public void testAdicionarUmaInformacaoAdicionalDoUsuario(){
 
         //Clicar no link sign in
@@ -70,7 +70,7 @@ public class InformacoesUsuarioTest {
         new Select(campoDate).selectByVisibleText("Phone");
 
         //No campo de name "contact" digitar " +
-        popupAddMoreDate.findElement(By.name("contact")).sendKeys("+5511912345678");
+        popupAddMoreDate.findElement(By.name("contact")).sendKeys("+5511111111");
 
         // Clicar no link de text "SAVE" que está na popup
         popupAddMoreDate.findElement(By.linkText("SAVE")).click();
@@ -87,9 +87,7 @@ public class InformacoesUsuarioTest {
     @Test
     public void removerUmContatoDeUsuário(){
        // Clicar no elemento pelo seu xpath //span[text()='+5511912345678"]/following -sibling::a
-        navegador.findElement(By.xpath("//span[text()=\"+5511912345678\"]/following-sibling::a")).click();
-        navegador.findElement(By.cssSelector(".tabs")).click();
-
+        navegador.findElement(By.xpath("//span[text()=\"+5511111111\"]/following-sibling::a")).click();
 
         //Confirmar a exclusão na janela javascript
         navegador.switchTo().alert().accept();
@@ -112,6 +110,7 @@ public class InformacoesUsuarioTest {
     @After
     public void tearDown(){
         //navegador.get("http://www.juliodelima.com.br/taskit/user/logout");
+        navegador.quit();
 
 
     }

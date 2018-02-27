@@ -2,9 +2,13 @@ package tests;
 
 import static org.junit.Assert.*;
 
+import org.easetech.easytest.annotation.DataLoader;
+import org.easetech.easytest.annotation.Param;
+import org.easetech.easytest.runner.DataDrivenTestRunner;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,6 +20,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
+@RunWith(DataDrivenTestRunner.class)
+@DataLoader(filePaths = "InformacoesUsuarios.csv")
 public class InformacoesUsuarioTest {
     private WebDriver navegador;
 
@@ -54,7 +60,7 @@ public class InformacoesUsuarioTest {
     }
 
     @Test
-    public void testAdicionarUmaInformacaoAdicionalDoUsuario(){
+    public void testAdicionarUmaInformacaoAdicionalDoUsuario(@Param(name="tipo")String tipo,@Param(name="contato")String contato, @Param(name="mensagem")String mensaagem)  {
 
         //Clicar no link sign in
 
@@ -67,10 +73,10 @@ public class InformacoesUsuarioTest {
 
        //Na combo de name "type" escolher a opção "Phone"
         WebElement campoDate = popupAddMoreDate.findElement(By.name("type"));
-        new Select(campoDate).selectByVisibleText("Phone");
+        new Select(campoDate).selectByVisibleText(tipo);
 
         //No campo de name "contact" digitar " +
-        popupAddMoreDate.findElement(By.name("contact")).sendKeys("+5511111111");
+        popupAddMoreDate.findElement(By.name("contact")).sendKeys(contato);
 
         // Clicar no link de text "SAVE" que está na popup
         popupAddMoreDate.findElement(By.linkText("SAVE")).click();
@@ -78,7 +84,7 @@ public class InformacoesUsuarioTest {
         //Na mensaagem de id "toast-container" o texto é : "Your contact has been added!"
         WebElement mensagemShilda = navegador.findElement(By.id("toast-container"));
         String mensagem = mensagemShilda.getText();
-        assertEquals("Your contact has been added!",mensagem);
+        assertEquals(mensagem,mensagem);
 
         //Validação
         assertEquals(1,1 );

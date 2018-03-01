@@ -1,5 +1,6 @@
-testAdicionarUmaInformacaoAdicionalDoUsuario,tipo,contato,mensagem,Duration(ms)
-"",Phone,+5511911111112,Your contact has been added!,584.0
-"",Phone,+5511922222223,Your contact has been added!,579.0
-"",Phone,+5511933333334,Your contact has been added!,600.0
-"",E-mail,change@dragon.com.br,Your contact has been added!,522.0
+testAdicionarUmaInformacaoAdicionalDoUsuario,tipo,contato,mensagem
+                                            ,Phone,+5511911111113,Your contact has been added!
+                                            ,Phone,+5511922222224,Your contact has been added!
+                                            ,Phone,+5511933333335,Your contact has been added!
+                                            ,E-mail,change@pegasus.com.br,Your contact has been added!
+                                            ,E-mail,change@grifon.com.br,Your contact has been added!

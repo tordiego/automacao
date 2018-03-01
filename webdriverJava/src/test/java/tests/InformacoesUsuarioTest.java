@@ -2,6 +2,7 @@ package tests;
 
 import static org.junit.Assert.*;
 
+import Suporte.Web;
 import org.easetech.easytest.annotation.DataLoader;
 import org.easetech.easytest.annotation.Param;
 import org.easetech.easytest.runner.DataDrivenTestRunner;
@@ -27,13 +28,9 @@ public class InformacoesUsuarioTest {
 
     @Before
     public void setUp() {
-        //Abrindo o navegador
-        System.setProperty("webdriver.chrome","C:\\Users\\Casa\\drivers\\chromedriver.exe");
-        navegador = new ChromeDriver();
-        navegador.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
-        //Navegando
-        navegador.get("http://www.juliodelima.com.br/taskit");
+        navegador = Web.createChrome();
+
 
         navegador.findElement(By.linkText("Sign in")).click();
 

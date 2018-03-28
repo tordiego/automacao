@@ -14,20 +14,31 @@ public class AcessandoSistemaTest {
         WebDriver navegador = new ChromeDriver();
         navegador.manage().window().maximize();
 
-        //Acessando a página
-        navegador.get("http://projetogem.ddns.net:99/csp/gem/menu/menu.csp");
-
-        //Clicar e colocar o usuário
-        //navegador.findElement(By.id("nome")).click();
-        navegador.findElement(By.id("nome")).sendKeys("diego.torres");
+        /* Acessa a página de cálculo da média do aluno*/
 
 
-        //Clicar e colocar a senha
-        navegador.findElement(By.id("senha")).sendKeys("*P2154m*");
+        /* Limpa os campos de texto que recebem os dados do aluno */
 
-        //Clicar no botão login
-        navegador.findElement(By.xpath("//input[@value=\"Login\"]")).click();
 
-        assertEquals(1,1);
+        /* Preenche o campo de texto referente a 1ª avaliação */
+        navegador.findElement(By.id("avaliacao1")).sendKeys("10");
+
+
+        /* Preenche o campo de texto referente ao 2ª avaliação */
+        navegador.findElement(By.id("avaliacao2")).sendKeys("10");
+
+
+        /* Preenche o campo de texto referente ao trabalho */
+        navegador.findElement(By.id("trabalho")).sendKeys("10");
+
+
+        /* Submete o formulário para o cálculo da média*/
+        navegador.findElement(By.id("calculo")).click();
+
+
+        /* Retorna a mensagem exibida pelo sistema */
+
+
+        /* Fecha um browser */
     }
 }

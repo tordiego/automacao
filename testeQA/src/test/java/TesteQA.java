@@ -42,7 +42,7 @@ public class TesteQA {
         //Clicar no pesquisar
         navegador.findElement(By.xpath("//input[@id=\"button\"]")).click();
 
-
+        //git
 
         assertEquals(1,1);
     }
